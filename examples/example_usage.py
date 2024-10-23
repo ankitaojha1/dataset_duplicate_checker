@@ -20,7 +20,7 @@ df_spark = spark.createDataFrame(data_spark, ['col_1', 'col_2'])
 print("PySpark DataFrame - Checking for duplicates:")
 result_spark = DuplicateChecker.check_duplicates(df_spark, ['col_1', 'col_2'])
 result_spark['samples'].show()
-print("results.....")
+print("Count is : " + str(result_spark['count']))
 
 #Example with Pandas DataFrame
 data_pandas = {
@@ -33,7 +33,7 @@ df_pandas = pd.DataFrame(data_pandas)
 print("Pandas DataFrame - Checking for duplicates:")
 result_pandas = DuplicateChecker.check_duplicates(df_pandas, ['col_1', 'col_2'])
 result_pandas['samples'].show()
-print("results pandas.....")
+print("Count is : " + str(result_pandas['count']))
 
 #Stop Spark session
 spark.stop()
