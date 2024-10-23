@@ -3,7 +3,4 @@ venv/
 __pycache__/
 *.pyc
 
-# Pre-commit logs
-.pre-commit-config.yaml
-
 .DS_Store

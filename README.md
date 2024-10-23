@@ -14,7 +14,7 @@ This project provides a **duplicate checking tool** implemented in **PySpark**, 
   - [Local Tests](#local-tests)
   - [Docker Tests](#docker-tests)
 - [Edge Cases](#edge-cases)
-- [Pre-Commit Hooks](#pre-commit-hooks)
+- [Pre-Commit Hooks (Optional)](#pre-commit-hooks-optional)
 - [Contributing](#contributing)
 
 ---
@@ -34,7 +34,7 @@ This project provides a **duplicate checking tool** implemented in **PySpark**, 
 ├── __init__.py
 ├── README.md                            # Readme file for the project
 ├── requirements.txt                     # Python dependencies (PySpark, pytest, pre-commit, etc.)
-├── .pre-commit-config.yaml              # Pre-commit hook configuration
+├── .pre-commit-config.yaml              # Pre-commit hook configuration(optional)
 └── .gitignore                           # Optional: Ignore unnecessary files (e.g., virtualenv, pycache, etc.)
 ```
 
@@ -148,8 +148,13 @@ The DuplicateChecker class handles the following edge cases:
 - **Non-existent columns**: Raises a ValueError if the column(s) provided do not exist in the DataFrame.
 - **Empty column list**: Raises a ValueError if no columns are provided for checking duplicates.
 
-### Pre-Commit Hooks
-This project uses `pre-commit` hooks to ensure code quality and consistency. Hooks are used to enforce code formatting, linting, and other checks before commits are made. The following tools are integrated via pre-commit:
+### Pre-Commit Hooks (Optional)
+This project can use `pre-commit` hooks to ensure code quality and consistency. The below commands can be uncommented in the Dockerfile to install the pre-commit hooks.
+```bash
+    # COPY .pre-commit-config.yaml .pre-commit-config.yaml
+    # RUN pre-commit install --install-hooks
+```
+Hooks are used to enforce code formatting, linting, and other checks before commits are made. The following tools are integrated via pre-commit:
 - **Black**: For automatic code formatting.
 - **Flake8**: For style guide enforcement and linting.
 - **Pylint**: For static code analysis and code quality checks.
