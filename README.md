@@ -158,7 +158,6 @@ This project uses `pre-commit` hooks to ensure code quality and consistency. Hoo
 
 ### Contributing
 Please follow the steps below for contributing:
-- Fork the repository.
 - Create a new branch: git checkout -b my-feature-branch.
 - Make your changes and commit them: git commit -m 'Add new feature'.
 - Push to the branch: git push origin my-feature-branch.
