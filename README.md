@@ -1,6 +1,6 @@
 # Dataset Duplicate Checker with PySpark
 
-This project provides a **duplicate checking tool** implemented in **PySpark**, along with unit tests to validate its functionality. The tool is designed to detect duplicates in a PySpark DataFrame based on specified columns and is packaged to run seamlessly in a **Docker container**.
+This project provides a **duplicate checking tool** implemented in **PySpark**, along with pytests to validate its functionality. The tool is designed to detect duplicates in a PySpark/Pandas DataFrame based on specified columns and is packaged to run seamlessly in a **Docker container**.
 
 ## Table of Contents
 
@@ -39,8 +39,8 @@ This project provides a **duplicate checking tool** implemented in **PySpark**, 
 ```
 
 
-- **`duplicate_checker/checker.py`**: Main file that contains the `PySparkDuplicateChecker` class to check for duplicates in a PySpark DataFrame.
-- **`duplicate_checker/tests/test_checker.py`**: Unit tests to validate the functionality of the duplicate checker.
+- **`src/duplicate_checker.py`**: Main file that contains the `DuplicateChecker` class to check for duplicates in a PySpark/Pandas DataFrame.
+- **`tests/test_duplicate_checker.py`**: Pytests to validate the functionality of the duplicate checker.
 - **`Dockerfile`**: Defines the Docker environment for the project.
 
 ---
@@ -49,9 +49,9 @@ This project provides a **duplicate checking tool** implemented in **PySpark**, 
 
 To run this project, you'll need:
 
-1. **Python 3.10+** (for local development)
+1. **Python 3.8+** (for local development)
 2. **PySpark**: Installed either locally or via Docker.
-3. **pytest**: For running unit tests.
+3. **pytest**: For running tests.
 4. **Docker** (if using Docker for deployment).
 
 ## Setup
@@ -62,8 +62,8 @@ To run the project locally, follow these steps:
 
 1. **Clone the repository**:
     ```bash
-    git clone https://github.com/your-repo/duplicate-checker.git
-    cd duplicate-checker
+    git clone https://github.com/ankitaojha1/dataset_duplicate_checker.git
+    cd dataset_duplicate_checker
     ```
 
 2. **Install dependencies**:
@@ -94,7 +94,7 @@ To run the project using Docker, make sure you have **Docker** installed and fol
     docker run dataset_duplicate_checker
     ```
 
-This will run the default command in the `Dockerfile` (executing the examples).
+This will run the default command in the `Dockerfile` (executing the examples from examples/example_usage.py).
 
 ### Running the Duplicate Checker
 
@@ -121,6 +121,8 @@ You can also use the `DuplicateChecker` class separately, to check for duplicate
     # Show results
     print("Duplicate Count:", result['count'])
     result['samples'].show()
+
+    spark.stop()
 ```
 **Expected Output**:
 - Duplicate count based on the column(s) passed.
@@ -131,7 +133,7 @@ You can also use the `DuplicateChecker` class separately, to check for duplicate
 
 To run the tests in your local environment using pytest, execute:
 ```bash
-    pytest duplicate_checker/tests/test_checker.py
+    pytest duplicate_checker/tests/test_duplicate_checker.py
 ```
 **Docker Tests**
 
